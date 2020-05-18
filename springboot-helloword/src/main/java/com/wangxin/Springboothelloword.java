@@ -1,14 +1,11 @@
-package com.wangxin.springboot.springbootstudy;
+package com.wangxin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootStudyApplication {
-
+public class Springboothelloword {
     public static void main(String[] args) {
-        //添加一个注释
-        SpringApplication.run(SpringbootStudyApplication.class, args);
+        SpringApplication.run(Springboothelloword.class,args);
     }
-
 }
