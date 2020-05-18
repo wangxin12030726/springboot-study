@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringbootStudyApplication {
 
     public static void main(String[] args) {
+        //添加一个注释
         SpringApplication.run(SpringbootStudyApplication.class, args);
     }
 
