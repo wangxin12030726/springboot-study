@@ -1,5 +1,6 @@
 package com.wangxin.springbootweb.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,9 +12,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-@NoArgsConstructor
-@Getter
-@Setter
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,11 +30,60 @@ public class User implements Serializable {
 	@Column(nullable = false)
 	private String regTime;
 
+	public User(){}
 	public User(String userName, String passWord, String email, String nickName, String regTime) {
 		this.userName = userName;
 		this.passWord = passWord;
 		this.email = email;
 		this.nickName = nickName;
+		this.regTime = regTime;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getRegTime() {
+		return regTime;
+	}
+
+	public void setRegTime(String regTime) {
 		this.regTime = regTime;
 	}
 }
