@@ -12,16 +12,16 @@ public class User implements Serializable {
 	private String userName;
 	private String passWord;
 	private String email;
-	private String nickName;
-	private String regTime;
 
 	public User(){}
-	public User(String userName, String passWord, String email, String nickName, String regTime) {
+	public User(Long id,String userName, String passWord, String email) {
+		this.id = id;
+		new User(userName,passWord,email);
+	}
+	public User(String userName, String passWord, String email) {
 		this.userName = userName;
 		this.passWord = passWord;
 		this.email = email;
-		this.nickName = nickName;
-		this.regTime = regTime;
 	}
 
 	public Long getId() {
@@ -56,19 +56,13 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public String getRegTime() {
-		return regTime;
-	}
-
-	public void setRegTime(String regTime) {
-		this.regTime = regTime;
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", passWord='" + passWord + '\'' +
+				", email='" + email + '\'' +
+				'}';
 	}
 }
