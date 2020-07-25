@@ -1,5 +1,7 @@
 package com.wangxin.springbootredis;
 
+import org.redisson.Redisson;
+import org.redisson.config.Config;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
@@ -27,5 +29,11 @@ public class RedisConfig {
         redisTemplate.setEnableTransactionSupport(true);
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         return redisTemplate;
+    }
+    @Bean
+    public Redisson redisson(){
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://localhost:6379").setDatabase(0);
+        return  (Redisson)Redisson.create(config);
     }
 }
